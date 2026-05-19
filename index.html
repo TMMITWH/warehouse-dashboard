@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>TMM3 Warehouse — Empty Location Dashboard</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -24,7 +24,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .tb-left{display:flex;align-items:center;gap:12px}
 .tb-logo{width:38px;height:38px;border-radius:var(--r-sm);background:linear-gradient(135deg,#2563eb,#1d4ed8);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .tb-logo svg{width:20px;height:20px;fill:white}
-.tb-title{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.3px}
+.tb-title{font-size:15px;font-weight:700;letter-spacing:-.3px}
 .tb-sub{font-size:11px;color:var(--text3);margin-top:1px}
 .tb-right{display:flex;align-items:center;gap:10px}
 .live-badge{display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;background:var(--teal-l);color:var(--teal);font-size:11px;font-weight:700;border:1px solid var(--teal-m)}
@@ -32,16 +32,25 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .ts-pill{font-size:11px;color:var(--text3);background:var(--surface2);padding:4px 12px;border-radius:20px;border:1px solid var(--border)}
 .main{max-width:1280px;margin:0 auto;padding:26px 28px 60px}
-.upload-wrap{background:var(--surface);border:2px dashed var(--border);border-radius:var(--r);padding:16px 22px;display:flex;align-items:center;gap:14px;margin-bottom:26px;cursor:pointer;transition:border-color .2s,background .2s}
-.upload-wrap:hover,.upload-wrap.drag{border-color:var(--blue);background:var(--blue-l)}
-.upload-icon{width:42px;height:42px;border-radius:var(--r-sm);background:var(--blue-l);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.upload-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.upload-info{flex:1}
-.upload-title{font-size:14px;font-weight:600;color:var(--text)}
-.upload-desc{font-size:12px;color:var(--text3);margin-top:2px}
-.upload-btn{display:flex;align-items:center;gap:7px;padding:9px 18px;border-radius:var(--r-sm);background:var(--blue);color:#fff;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
-.upload-btn:hover{background:#1d4ed8}
-#fileInput{display:none}
+
+/* STATUS BANNER */
+.status-banner{border-radius:var(--r);padding:14px 20px;margin-bottom:22px;display:flex;align-items:center;gap:12px;font-size:13px;font-weight:500}
+.status-banner.loading{background:var(--blue-l);color:#1e40af;border:1px solid var(--blue-m)}
+.status-banner.success{background:var(--teal-l);color:#0f766e;border:1px solid var(--teal-m)}
+.status-banner.error{background:var(--amber-l);color:#92400e;border:1px solid var(--amber-m)}
+.spin{width:16px;height:16px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* HOW TO UPDATE BOX */
+.how-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:24px}
+.how-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.how-step{background:var(--surface2);border-radius:var(--r-sm);padding:10px 12px;display:flex;gap:9px;align-items:flex-start;border:0.5px solid var(--border)}
+.how-num{width:20px;height:20px;border-radius:50%;background:var(--blue);color:white;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.how-text{font-size:12px;color:var(--text2);line-height:1.5}
+.how-text strong{color:var(--text);display:block;margin-bottom:1px}
+.how-code{display:inline-block;background:var(--blue-l);color:var(--blue);border-radius:3px;padding:1px 6px;font-family:monospace;font-size:11px;font-weight:600}
+
 .sec-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;margin-top:26px;display:flex;align-items:center;gap:8px}
 .sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
@@ -56,7 +65,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .zc{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);overflow:hidden;transition:box-shadow .2s,transform .2s}
 .zc:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
 .zc-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.zc-code{font-size:15px;font-weight:700;color:var(--text)}
+.zc-code{font-size:15px;font-weight:700}
 .zc-name{font-size:12px;color:var(--text3);margin-top:2px}
 .zc-tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
 .tag-frozen{background:var(--blue-l);color:var(--blue);border:1px solid var(--blue-m)}
@@ -79,7 +88,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px}
 @media(max-width:800px){.charts-row{grid-template-columns:1fr}}
 .chart-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);padding:18px 20px}
-.chart-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:14px}
+.chart-title{font-size:13px;font-weight:700;margin-bottom:14px}
 .chart-legend{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-weight:500}
 .leg-box{width:10px;height:10px;border-radius:2px}
@@ -89,6 +98,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 </style>
 </head>
 <body>
+
 <nav class="topbar">
   <div class="tb-left">
     <div class="tb-logo">
@@ -101,24 +111,47 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
   </div>
   <div class="tb-right">
     <div class="live-badge"><span class="live-dot"></span>Live</div>
-    <div class="ts-pill" id="tsLabel">Data: 19 May 2026  08:58</div>
+    <div class="ts-pill" id="tsLabel">Loading...</div>
   </div>
 </nav>
+
 <div class="main">
-  <div class="upload-wrap" id="uploadWrap" onclick="document.getElementById('fileInput').click()" ondragover="handleDrag(event,true)" ondragleave="handleDrag(event,false)" ondrop="handleDrop(event)">
-    <div class="upload-icon">
-      <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
-    </div>
-    <div class="upload-info">
-      <div class="upload-title">Upload New SAP Export to Refresh</div>
-      <div class="upload-desc">Download from SAP (LX03/MB52) → drag & drop or click Upload → dashboard updates for YOU instantly</div>
-    </div>
-    <button class="upload-btn" onclick="event.stopPropagation();document.getElementById('fileInput').click()">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
-      Upload SAP Export
-    </button>
-    <input type="file" id="fileInput" accept=".xlsx,.xls">
+
+  <!-- STATUS BANNER -->
+  <div class="status-banner loading" id="statusBanner">
+    <div class="spin"></div>
+    <span id="statusText">Loading latest SAP data from GitHub...</span>
   </div>
+
+  <!-- HOW TO UPDATE -->
+  <div class="how-box" id="howBox">
+    <div class="how-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      How to update dashboard — upload SAP file directly to GitHub
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-text"><strong>Export from SAP</strong>Run LX03/MB52 → Save as Local File → HTML format</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-text"><strong>Rename the file</strong>Must be named exactly <span class="how-code">data.html</span></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-text"><strong>Upload to GitHub</strong>Go to your repository → Add file → Upload → select <span class="how-code">data.html</span> → Commit</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div class="how-text"><strong>Done!</strong>Dashboard auto-reads the new file — everyone sees fresh data instantly ✓</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;text-align:right">
+      <button onclick="document.getElementById('howBox').style.display='none'" style="font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;text-decoration:underline">Hide guide</button>
+    </div>
+  </div>
+
   <div class="sec-label">Overall Summary</div>
   <div class="metrics-grid" id="metricsGrid"></div>
   <div class="sec-label">Zone Breakdown</div>
@@ -139,28 +172,95 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
     </div>
   </div>
   <div class="footer">
-    <span>SAP WM — LX03 / MB52 &nbsp;·&nbsp; * = bin detail &nbsp;·&nbsp; ** = zone subtotal</span>
+    <span>SAP WM — LX03 / MB52 &nbsp;·&nbsp; Auto-reads data.html from GitHub</span>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <span class="f-badge">TMM3 Warehouse</span>
       <span class="f-badge">4 Zones</span>
-      <span class="f-badge" id="footerDate">19 May 2026  08:58</span>
+      <span class="f-badge" id="footerDate">—</span>
     </div>
   </div>
 </div>
+
 <script>
 const ZONE_META={
-  T3C1:{name:'Shelf 1',full:'TMM3 — Frozen',type:'frozen',tag:'tag-frozen',label:'❄ Frozen'},
-  T3C2:{name:'Shelf 2',full:'TMM3 — Frozen',type:'frozen',tag:'tag-frozen',label:'❄ Frozen'},
-  T3C3:{name:'Shelf 3',full:'TMM3 — Chiller',type:'chiller',tag:'tag-chiller',label:'🌡 Chiller'},
-  T3R1:{name:'Rack 3',full:'TMM3 — Ambient (+18°C)',type:'ambient',tag:'tag-ambient',label:'☀ +18°C'},
+  T3C1:{name:'Shelf 1',full:'TMM3 — Frozen',label:'❄ Frozen',tag:'tag-frozen'},
+  T3C2:{name:'Shelf 2',full:'TMM3 — Frozen',label:'❄ Frozen',tag:'tag-frozen'},
+  T3C3:{name:'Shelf 3',full:'TMM3 — Chiller',label:'🌡 Chiller',tag:'tag-chiller'},
+  T3R1:{name:'Rack 3',full:'TMM3 — Ambient (+18°C)',label:'☀ +18°C',tag:'tag-ambient'},
 };
-const BAKED_DATA={"T3C1": {"total": 2296, "empty": 1821, "occupied": 475}, "T3C2": {"total": 2410, "empty": 889, "occupied": 1521}, "T3C3": {"total": 2659, "empty": 1063, "occupied": 1596}, "T3R1": {"total": 23900, "empty": 9704, "occupied": 14196}};
-let DATA_NOW={...BAKED_DATA};
+
+// Default fallback data
+const FALLBACK={
+  T3C1:{total:2296,empty:1821,occupied:475},
+  T3C2:{total:2410,empty:889,occupied:1521},
+  T3C3:{total:2659,empty:1063,occupied:1596},
+  T3R1:{total:23900,empty:9699,occupied:14201},
+};
+
 const fmt=n=>Number(n).toLocaleString('en-US');
 const pct=(v,t)=>t?Math.round(v/t*100):0;
 const nowStr=()=>new Date().toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
 const progColor=op=>op>=80?'#ef4444':op>=50?'#f59e0b':'#0d9488';
 const availClass=ep=>ep>=50?'avail-high':ep>=25?'avail-mid':'avail-low';
+
+function setStatus(type,msg){
+  const b=document.getElementById('statusBanner');
+  b.className='status-banner '+type;
+  b.innerHTML=type==='loading'
+    ?`<div class="spin"></div><span>${msg}</span>`
+    :type==='success'
+    ?`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg><span>${msg}</span>`
+    :`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>${msg}</span>`;
+}
+
+// Parse SAP HTML export
+function parseSAPHtml(text){
+  const matches=[...text.matchAll(/id=l(\d{4})(\d{3})[^>]*>(.*?)<\/nobr>/g)];
+  const lines={};
+  matches.forEach(([,ln,col,txt])=>{
+    const clean=txt.replace(/&nbsp;/g,'').replace(/&#x2a;/g,'*').trim();
+    if(!lines[+ln])lines[+ln]={};
+    lines[+ln][+col]=clean;
+  });
+  const out={};
+  Object.keys(lines).sort((a,b)=>a-b).forEach(lnum=>{
+    const row=lines[lnum];
+    const marker=(row[3]||'').trim();
+    const zone=(row[18]||'').trim();
+    const empty=(row[28]||'').trim();
+    const count=parseInt((row[34]||'').replace(/,/g,''),10);
+    if(!ZONE_META[zone]||isNaN(count))return;
+    if(!out[zone])out[zone]={total:0,empty:0,occupied:0};
+    if(marker.includes('**')&&!marker.includes('***'))out[zone].total=count;
+    else if(marker==='*'&&empty==='X')out[zone].empty=count;
+    else if(marker==='*')out[zone].occupied=count;
+  });
+  return Object.keys(out).length?out:null;
+}
+
+// Auto-fetch data.html from same GitHub repo
+async function fetchDataFile(){
+  setStatus('loading','Loading latest SAP data from GitHub...');
+  try{
+    // Fetch data.html from same directory — works on GitHub Pages
+    const res=await fetch('data.html?t='+Date.now());
+    if(!res.ok)throw new Error('data.html not found (HTTP '+res.status+')');
+    const text=await res.text();
+    const data=parseSAPHtml(text);
+    if(!data)throw new Error('Could not parse data.html');
+    const t=nowStr();
+    setStatus('success','✓ Data loaded from GitHub — '+t);
+    document.getElementById('tsLabel').textContent='Updated: '+t;
+    document.getElementById('footerDate').textContent=t;
+    render(data);
+  }catch(err){
+    setStatus('error','⚠ Could not load data.html — showing last known data. Upload data.html to GitHub to refresh. ('+err.message+')');
+    const t=nowStr();
+    document.getElementById('tsLabel').textContent='Fallback data: '+t;
+    document.getElementById('footerDate').textContent=t;
+    render(FALLBACK);
+  }
+}
 
 function renderMetrics(d){
   const zones=Object.keys(d);
@@ -188,11 +288,11 @@ function renderMetrics(d){
 }
 
 function renderZones(d){
-  const g=document.getElementById('zonesGrid'); g.innerHTML='';
+  const g=document.getElementById('zonesGrid');g.innerHTML='';
   Object.entries(d).forEach(([code,z])=>{
-    const m=ZONE_META[code]||{name:code,full:'',type:'ambient',tag:'tag-ambient',label:'Ambient'};
+    const m=ZONE_META[code]||{name:code,full:'',label:'',tag:'tag-ambient'};
     const ep=pct(z.empty,z.total),op=pct(z.occupied,z.total);
-    const el=document.createElement('div'); el.className='zc';
+    const el=document.createElement('div');el.className='zc';
     el.innerHTML=`
       <div class="zc-head">
         <div><div class="zc-code">${code} — ${m.name}</div><div class="zc-name">${m.full}</div></div>
@@ -222,122 +322,71 @@ function renderZones(d){
 }
 
 function drawBar(d){
-  const canvas=document.getElementById('barChart');
-  const ctx=canvas.getContext('2d');
-  const zones=Object.keys(d);
-  const occ=zones.map(z=>d[z].occupied);
-  const emp=zones.map(z=>d[z].empty);
-  const W=canvas.parentElement.clientWidth-40||500; const H=200;
-  canvas.width=W; canvas.height=H;
-  ctx.clearRect(0,0,W,H);
-  const pad={l:52,r:10,t:10,b:36};
-  const cW=W-pad.l-pad.r; const cH=H-pad.t-pad.b;
-  const maxV=Math.max(...occ,...emp)*1.1||1;
-  const gW=cW/zones.length; const bW=gW*0.28; const gap=gW*0.06;
-  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1;
+  const canvas=document.getElementById('barChart'),ctx=canvas.getContext('2d');
+  const zones=Object.keys(d),occ=zones.map(z=>d[z].occupied),emp=zones.map(z=>d[z].empty);
+  const W=canvas.parentElement.clientWidth-40||500,H=200;
+  canvas.width=W;canvas.height=H;ctx.clearRect(0,0,W,H);
+  const pad={l:52,r:10,t:10,b:36},cW=W-pad.l-pad.r,cH=H-pad.t-pad.b;
+  const maxV=Math.max(...occ,...emp)*1.1||1,gW=cW/zones.length,bW=gW*0.28,gap=gW*0.06;
+  ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;
   for(let i=0;i<=4;i++){
     const y=pad.t+cH-(i/4)*cH;
-    ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(W-pad.r,y); ctx.stroke();
-    ctx.fillStyle='#94a3b8'; ctx.font='10px Inter,sans-serif'; ctx.textAlign='right';
+    ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();
+    ctx.fillStyle='#94a3b8';ctx.font='10px Inter,sans-serif';ctx.textAlign='right';
     const v=Math.round(maxV*i/4);
     ctx.fillText(v>=1000?(v/1000).toFixed(0)+'k':v,pad.l-5,y+3);
   }
   zones.forEach((z,i)=>{
     const gx=pad.l+i*gW+gW/2;
     const oh=occ[i]/maxV*cH;
-    ctx.fillStyle='#2563eb';
-    ctx.beginPath(); ctx.roundRect(gx-bW-gap/2,pad.t+cH-oh,bW,oh,3); ctx.fill();
+    ctx.fillStyle='#2563eb';ctx.beginPath();ctx.roundRect(gx-bW-gap/2,pad.t+cH-oh,bW,oh,3);ctx.fill();
     const eh=emp[i]/maxV*cH;
-    ctx.fillStyle='#0d9488';
-    ctx.beginPath(); ctx.roundRect(gx+gap/2,pad.t+cH-eh,bW,eh,3); ctx.fill();
-    ctx.fillStyle='#4a5568'; ctx.font='bold 11px Inter,sans-serif'; ctx.textAlign='center';
+    ctx.fillStyle='#0d9488';ctx.beginPath();ctx.roundRect(gx+gap/2,pad.t+cH-eh,bW,eh,3);ctx.fill();
+    ctx.fillStyle='#4a5568';ctx.font='bold 11px Inter,sans-serif';ctx.textAlign='center';
     ctx.fillText(z,gx,H-8);
   });
 }
 
 function drawDoughnut(d){
-  const canvas=document.getElementById('doughnutChart');
-  const ctx=canvas.getContext('2d');
-  const W=canvas.parentElement.clientWidth-40||300; const H=200;
-  canvas.width=W; canvas.height=H;
-  ctx.clearRect(0,0,W,H);
-  const zones=Object.keys(d);
-  const emPct=zones.map(z=>pct(d[z].empty,d[z].total));
+  const canvas=document.getElementById('doughnutChart'),ctx=canvas.getContext('2d');
+  const W=canvas.parentElement.clientWidth-40||300,H=200;
+  canvas.width=W;canvas.height=H;ctx.clearRect(0,0,W,H);
+  const zones=Object.keys(d),emPct=zones.map(z=>pct(d[z].empty,d[z].total));
   const colors=['#2563eb','#0d9488','#d97706','#7c3aed'];
   const cx=W/2,cy=H/2-10,radius=Math.min(cx,cy)-28,inner=radius*0.58;
   let startAngle=-Math.PI/2;
   const total=emPct.reduce((a,b)=>a+b,0)||1;
   emPct.forEach((v,i)=>{
     const slice=(v/total)*2*Math.PI;
-    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,radius,startAngle,startAngle+slice);
-    ctx.closePath(); ctx.fillStyle=colors[i]; ctx.fill();
-    ctx.beginPath(); ctx.arc(cx,cy,inner,0,2*Math.PI);
-    ctx.fillStyle='#fff'; ctx.fill();
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,radius,startAngle,startAngle+slice);
+    ctx.closePath();ctx.fillStyle=colors[i];ctx.fill();
+    ctx.beginPath();ctx.arc(cx,cy,inner,0,2*Math.PI);ctx.fillStyle='#fff';ctx.fill();
     startAngle+=slice;
   });
-  const totalEmp=Object.values(d).reduce((s,z)=>s+z.empty,0);
-  const totalAll=Object.values(d).reduce((s,z)=>s+z.total,0);
-  ctx.fillStyle='#1a202c'; ctx.font='bold 15px Inter,sans-serif'; ctx.textAlign='center';
-  ctx.fillText(pct(totalEmp,totalAll)+'%',cx,cy+4);
-  ctx.fillStyle='#94a3b8'; ctx.font='10px Inter,sans-serif';
-  ctx.fillText('empty',cx,cy+16);
+  const tE=Object.values(d).reduce((s,z)=>s+z.empty,0);
+  const tA=Object.values(d).reduce((s,z)=>s+z.total,0);
+  ctx.fillStyle='#1a202c';ctx.font='bold 15px Inter,sans-serif';ctx.textAlign='center';
+  ctx.fillText(pct(tE,tA)+'%',cx,cy+4);
+  ctx.fillStyle='#94a3b8';ctx.font='10px Inter,sans-serif';ctx.fillText('empty',cx,cy+16);
   zones.forEach((z,i)=>{
-    const lx=8+(i%2)*((W-16)/2); const ly=H-26+Math.floor(i/2)*14;
-    ctx.fillStyle=colors[i]; ctx.fillRect(lx,ly,8,8);
-    ctx.fillStyle='#4a5568'; ctx.font='10px Inter,sans-serif'; ctx.textAlign='left';
+    const lx=8+(i%2)*((W-16)/2),ly=H-26+Math.floor(i/2)*14;
+    ctx.fillStyle=colors[i];ctx.fillRect(lx,ly,8,8);
+    ctx.fillStyle='#4a5568';ctx.font='10px Inter,sans-serif';ctx.textAlign='left';
     ctx.fillText(z+' '+emPct[i]+'%',lx+11,ly+7);
   });
 }
 
 function render(d){
-  renderMetrics(d); renderZones(d); drawBar(d); drawDoughnut(d);
-  const t=nowStr();
-  document.getElementById('tsLabel').textContent='Updated: '+t;
-  document.getElementById('footerDate').textContent=t;
+  renderMetrics(d);renderZones(d);drawBar(d);drawDoughnut(d);
 }
 
-// XLSX parser
-function parseXLSX(buffer){
-  try{
-    const wb=XLSX.read(buffer,{type:'array'});
-    const ws=wb.Sheets[wb.SheetNames[0]];
-    const rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
-    const out={};
-    rows.forEach(row=>{
-      const marker=String(row[1]||'').trim();
-      const zone=String(row[3]||'').trim();
-      const empty=String(row[5]||'').trim();
-      const count=parseInt(String(row[6]||'').replace(/,/g,''),10);
-      if(!ZONE_META[zone]||isNaN(count))return;
-      if(!out[zone])out[zone]={total:0,empty:0,occupied:0};
-      if(marker==='**') out[zone].total=count;
-      if(marker==='*'&&empty==='X') out[zone].empty=count;
-      if(marker==='*'&&empty!=='X') out[zone].occupied=count;
-    });
-    return Object.keys(out).length?out:null;
-  }catch(e){return null;}
-}
+window.addEventListener('resize',()=>fetchDataFile());
 
-function loadFile(file){
-  const r=new FileReader();
-  r.onload=function(ev){
-    const d=parseXLSX(ev.target.result);
-    if(d){DATA_NOW=d; render(DATA_NOW);}
-    else alert('Could not parse — please use SAP Storage Bin export (LX03/MB52).');
-  };
-  r.readAsArrayBuffer(file);
-}
-document.getElementById('fileInput').addEventListener('change',function(e){
-  const f=e.target.files[0]; if(!f)return; loadFile(f); e.target.value='';
-});
-function handleDrag(e,on){e.preventDefault();document.getElementById('uploadWrap').classList.toggle('drag',on);}
-function handleDrop(e){
-  e.preventDefault(); document.getElementById('uploadWrap').classList.remove('drag');
-  const f=e.dataTransfer.files[0]; if(f)loadFile(f);
-}
-window.addEventListener('resize',()=>render(DATA_NOW));
-render(DATA_NOW);
+// AUTO-LOAD on page open
+fetchDataFile();
+
+// Auto-refresh every 5 minutes
+setInterval(fetchDataFile, 5*60*1000);
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </body>
 </html>
