@@ -13,26 +13,25 @@
   --blue:#2563eb;--blue-l:#dbeafe;--blue-m:#93c5fd;
   --teal:#0d9488;--teal-l:#ccfbf1;--teal-m:#5eead4;
   --amber:#d97706;--amber-l:#fef3c7;--amber-m:#fcd34d;
-  --red:#dc2626;--red-l:#fee2e2;
-  --green:#16a34a;--green-l:#dcfce7;
+  --red:#dc2626;--red-l:#fee2e2;--green:#16a34a;--green-l:#dcfce7;
   --purple:#7c3aed;--purple-l:#ede9fe;
   --r:12px;--r-sm:8px;
   --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
   --sh-md:0 4px 16px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.05);
 }
 body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px}
-.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 28px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--sh)}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--sh)}
 .tb-left{display:flex;align-items:center;gap:12px}
-.tb-logo{width:36px;height:36px;border-radius:var(--r-sm);background:#2563eb;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.tb-logo svg{width:18px;height:18px;fill:white}
+.tb-logo{width:38px;height:38px;border-radius:var(--r-sm);background:linear-gradient(135deg,#2563eb,#1d4ed8);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tb-logo svg{width:20px;height:20px;fill:white}
 .tb-title{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.3px}
 .tb-sub{font-size:11px;color:var(--text3);margin-top:1px}
 .tb-right{display:flex;align-items:center;gap:10px}
-.live-badge{display:flex;align-items:center;gap:6px;padding:4px 11px;border-radius:20px;background:var(--teal-l);color:var(--teal);font-size:11px;font-weight:700;border:1px solid var(--teal-m)}
+.live-badge{display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;background:var(--teal-l);color:var(--teal);font-size:11px;font-weight:700;border:1px solid var(--teal-m)}
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.ts-pill{font-size:11px;color:var(--text3);background:var(--surface2);padding:4px 11px;border-radius:20px;border:1px solid var(--border)}
-.main{max-width:1280px;margin:0 auto;padding:24px 28px 60px}
+.ts-pill{font-size:11px;color:var(--text3);background:var(--surface2);padding:4px 12px;border-radius:20px;border:1px solid var(--border)}
+.main{max-width:1280px;margin:0 auto;padding:26px 28px 60px}
 .upload-wrap{background:var(--surface);border:2px dashed var(--border);border-radius:var(--r);padding:16px 22px;display:flex;align-items:center;gap:14px;margin-bottom:26px;cursor:pointer;transition:border-color .2s,background .2s}
 .upload-wrap:hover,.upload-wrap.drag{border-color:var(--blue);background:var(--blue-l)}
 .upload-icon{width:42px;height:42px;border-radius:var(--r-sm);background:var(--blue-l);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -52,7 +51,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .mc-val{font-size:28px;font-weight:800;line-height:1;margin-bottom:5px}
 .mc-sub{font-size:12px;color:var(--text3)}
 .mc-bar{height:4px;border-radius:2px;background:var(--border);margin-top:10px;overflow:hidden}
-.mc-bar-fill{height:100%;border-radius:2px;transition:width .9s cubic-bezier(.4,0,.2,1)}
+.mc-bar-fill{height:100%;border-radius:2px}
 .zones-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
 .zc{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);overflow:hidden;transition:box-shadow .2s,transform .2s}
 .zc:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
@@ -71,7 +70,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .prog-row{margin-bottom:9px}
 .prog-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:500}
 .prog-track{height:8px;border-radius:4px;background:var(--surface2);overflow:hidden;border:1px solid var(--border)}
-.prog-fill{height:100%;border-radius:4px;transition:width .9s cubic-bezier(.4,0,.2,1)}
+.prog-fill{height:100%;border-radius:4px}
 .zc-foot{padding:9px 18px;background:var(--surface2);border-top:1px solid var(--border);font-size:11px;color:var(--text3);display:flex;align-items:center;justify-content:space-between}
 .avail-pill{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700}
 .avail-high{background:var(--green-l);color:var(--green)}
@@ -84,10 +83,9 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .chart-legend{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-weight:500}
 .leg-box{width:10px;height:10px;border-radius:2px}
-canvas{display:block}
 .footer{margin-top:32px;padding-top:14px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--text3)}
 .f-badge{background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:20px;font-size:11px;color:var(--text2);font-weight:500}
-@media(max-width:600px){.main{padding:16px 14px 40px}.topbar{padding:0 14px}.charts-row{grid-template-columns:1fr}}
+@media(max-width:600px){.main{padding:16px 14px 40px}.topbar{padding:0 14px}}
 </style>
 </head>
 <body>
@@ -103,19 +101,17 @@ canvas{display:block}
   </div>
   <div class="tb-right">
     <div class="live-badge"><span class="live-dot"></span>Live</div>
-    <div class="ts-pill" id="tsLabel">Not loaded yet</div>
+    <div class="ts-pill" id="tsLabel">Data: 19 May 2026  08:58</div>
   </div>
 </nav>
-
 <div class="main">
-
   <div class="upload-wrap" id="uploadWrap" onclick="document.getElementById('fileInput').click()" ondragover="handleDrag(event,true)" ondragleave="handleDrag(event,false)" ondrop="handleDrop(event)">
     <div class="upload-icon">
       <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
     </div>
     <div class="upload-info">
-      <div class="upload-title">Upload SAP Export (XLSX)</div>
-      <div class="upload-desc">Download from SAP (LX03/MB52) → drag & drop here or click Upload → dashboard refreshes instantly</div>
+      <div class="upload-title">Upload New SAP Export to Refresh</div>
+      <div class="upload-desc">Download from SAP (LX03/MB52) → drag & drop or click Upload → dashboard updates for YOU instantly</div>
     </div>
     <button class="upload-btn" onclick="event.stopPropagation();document.getElementById('fileInput').click()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
@@ -123,104 +119,80 @@ canvas{display:block}
     </button>
     <input type="file" id="fileInput" accept=".xlsx,.xls">
   </div>
-
   <div class="sec-label">Overall Summary</div>
   <div class="metrics-grid" id="metricsGrid"></div>
-
   <div class="sec-label">Zone Breakdown</div>
   <div class="zones-grid" id="zonesGrid"></div>
-
   <div class="sec-label">Analytics</div>
   <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">Occupied vs Empty bins — all zones</div>
+      <div class="chart-title">Occupied vs Empty Bins — All Zones</div>
       <div class="chart-legend">
         <span class="leg"><span class="leg-box" style="background:#2563eb"></span>Occupied</span>
         <span class="leg"><span class="leg-box" style="background:#0d9488"></span>Empty</span>
       </div>
-      <canvas id="barChart" width="100%" height="200"></canvas>
+      <canvas id="barChart" height="200"></canvas>
     </div>
     <div class="chart-card">
-      <div class="chart-title">Empty bin availability % per zone</div>
-      <canvas id="doughnutChart" width="100%" height="200"></canvas>
+      <div class="chart-title">Empty Bin Availability % per Zone</div>
+      <canvas id="doughnutChart" height="200"></canvas>
     </div>
   </div>
-
   <div class="footer">
-    <span>Data source: SAP WM — LX03 / MB52 &nbsp;·&nbsp; * = bin detail &nbsp;·&nbsp; ** = zone subtotal</span>
+    <span>SAP WM — LX03 / MB52 &nbsp;·&nbsp; * = bin detail &nbsp;·&nbsp; ** = zone subtotal</span>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <span class="f-badge">TMM3 Warehouse</span>
       <span class="f-badge">4 Zones</span>
-      <span class="f-badge" id="footerDate">—</span>
+      <span class="f-badge" id="footerDate">19 May 2026  08:58</span>
     </div>
   </div>
 </div>
-
 <script>
-// ── ZONE CONFIG ──────────────────────────────────────────────
 const ZONE_META={
   T3C1:{name:'Shelf 1',full:'TMM3 — Frozen',type:'frozen',tag:'tag-frozen',label:'❄ Frozen'},
   T3C2:{name:'Shelf 2',full:'TMM3 — Frozen',type:'frozen',tag:'tag-frozen',label:'❄ Frozen'},
   T3C3:{name:'Shelf 3',full:'TMM3 — Chiller',type:'chiller',tag:'tag-chiller',label:'🌡 Chiller'},
   T3R1:{name:'Rack 3',full:'TMM3 — Ambient (+18°C)',type:'ambient',tag:'tag-ambient',label:'☀ +18°C'},
 };
-const DEFAULT={
-  T3C1:{total:2296,empty:1821,occupied:475},
-  T3C2:{total:2410,empty:889,occupied:1521},
-  T3C3:{total:2659,empty:1063,occupied:1596},
-  T3R1:{total:23898,empty:9575,occupied:14323},
-};
-let DATA={...DEFAULT};
+const BAKED_DATA={"T3C1": {"total": 2296, "empty": 1821, "occupied": 475}, "T3C2": {"total": 2410, "empty": 889, "occupied": 1521}, "T3C3": {"total": 2659, "empty": 1063, "occupied": 1596}, "T3R1": {"total": 23900, "empty": 9704, "occupied": 14196}};
+let DATA_NOW={...BAKED_DATA};
 const fmt=n=>Number(n).toLocaleString('en-US');
 const pct=(v,t)=>t?Math.round(v/t*100):0;
 const nowStr=()=>new Date().toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
-const availClass=ep=>ep>=50?'avail-high':ep>=25?'avail-mid':'avail-low';
 const progColor=op=>op>=80?'#ef4444':op>=50?'#f59e0b':'#0d9488';
+const availClass=ep=>ep>=50?'avail-high':ep>=25?'avail-mid':'avail-low';
 
-// ── RENDER METRICS ───────────────────────────────────────────
 function renderMetrics(d){
   const zones=Object.keys(d);
   const tot=zones.reduce((s,z)=>s+d[z].total,0);
   const emp=zones.reduce((s,z)=>s+d[z].empty,0);
   const occ=zones.reduce((s,z)=>s+d[z].occupied,0);
   const ep=pct(emp,tot),op=pct(occ,tot);
-  const statusColor=op>=80?'#dc2626':op>=50?'#d97706':'#16a34a';
-  const statusText=op>=80?'⚠ High — action needed':op>=50?'◑ Moderate':'✓ Good availability';
+  const sc=op>=80?'#dc2626':op>=50?'#d97706':'#16a34a';
   document.getElementById('metricsGrid').innerHTML=`
     <div class="mc"><div class="mc-accent" style="background:#7c3aed"></div>
-      <div class="mc-label">Total Bins</div>
-      <div class="mc-val" style="color:#7c3aed">${fmt(tot)}</div>
-      <div class="mc-sub">All 4 zones combined</div>
-    </div>
+      <div class="mc-label">Total Bins</div><div class="mc-val" style="color:#7c3aed">${fmt(tot)}</div>
+      <div class="mc-sub">All 4 zones combined</div></div>
     <div class="mc"><div class="mc-accent" style="background:#0d9488"></div>
-      <div class="mc-label">Empty (Available)</div>
-      <div class="mc-val" style="color:#0d9488">${fmt(emp)}</div>
+      <div class="mc-label">Empty (Available)</div><div class="mc-val" style="color:#0d9488">${fmt(emp)}</div>
       <div class="mc-sub">${ep}% of total capacity free</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:${ep}%;background:#0d9488"></div></div>
-    </div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:${ep}%;background:#0d9488"></div></div></div>
     <div class="mc"><div class="mc-accent" style="background:#2563eb"></div>
-      <div class="mc-label">Occupied</div>
-      <div class="mc-val" style="color:#2563eb">${fmt(occ)}</div>
+      <div class="mc-label">Occupied</div><div class="mc-val" style="color:#2563eb">${fmt(occ)}</div>
       <div class="mc-sub">${op}% utilization rate</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:${op}%;background:#2563eb"></div></div>
-    </div>
-    <div class="mc"><div class="mc-accent" style="background:${statusColor}"></div>
-      <div class="mc-label">Overall Status</div>
-      <div class="mc-val" style="color:${statusColor};font-size:22px">${op}%</div>
-      <div class="mc-sub">${statusText}</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:${op}%;background:${statusColor}"></div></div>
-    </div>`;
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:${op}%;background:#2563eb"></div></div></div>
+    <div class="mc"><div class="mc-accent" style="background:${sc}"></div>
+      <div class="mc-label">Overall Status</div><div class="mc-val" style="color:${sc};font-size:22px">${op}%</div>
+      <div class="mc-sub">${op>=80?'⚠ High — action needed':op>=50?'◑ Moderate':'✓ Good availability'}</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:${op}%;background:${sc}"></div></div></div>`;
 }
 
-// ── RENDER ZONES ─────────────────────────────────────────────
 function renderZones(d){
-  const g=document.getElementById('zonesGrid');
-  g.innerHTML='';
+  const g=document.getElementById('zonesGrid'); g.innerHTML='';
   Object.entries(d).forEach(([code,z])=>{
     const m=ZONE_META[code]||{name:code,full:'',type:'ambient',tag:'tag-ambient',label:'Ambient'};
     const ep=pct(z.empty,z.total),op=pct(z.occupied,z.total);
-    const el=document.createElement('div');
-    el.className='zc';
+    const el=document.createElement('div'); el.className='zc';
     el.innerHTML=`
       <div class="zc-head">
         <div><div class="zc-code">${code} — ${m.name}</div><div class="zc-name">${m.full}</div></div>
@@ -249,111 +221,83 @@ function renderZones(d){
   });
 }
 
-// ── PURE CANVAS CHARTS (no external library) ─────────────────
-function drawBarChart(d){
+function drawBar(d){
   const canvas=document.getElementById('barChart');
   const ctx=canvas.getContext('2d');
   const zones=Object.keys(d);
   const occ=zones.map(z=>d[z].occupied);
   const emp=zones.map(z=>d[z].empty);
-  const W=canvas.parentElement.clientWidth-40||400;
-  const H=200;
-  canvas.width=W;canvas.height=H;
+  const W=canvas.parentElement.clientWidth-40||500; const H=200;
+  canvas.width=W; canvas.height=H;
   ctx.clearRect(0,0,W,H);
-  const pad={l:50,r:20,t:10,b:36};
-  const chartW=W-pad.l-pad.r;
-  const chartH=H-pad.t-pad.b;
-  const maxVal=Math.max(...occ,...emp)*1.1||1;
-  const groupW=chartW/zones.length;
-  const barW=groupW*0.3;
-  const gap=groupW*0.05;
-  // grid lines
-  ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;
+  const pad={l:52,r:10,t:10,b:36};
+  const cW=W-pad.l-pad.r; const cH=H-pad.t-pad.b;
+  const maxV=Math.max(...occ,...emp)*1.1||1;
+  const gW=cW/zones.length; const bW=gW*0.28; const gap=gW*0.06;
+  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1;
   for(let i=0;i<=4;i++){
-    const y=pad.t+chartH-(i/4)*chartH;
-    ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();
-    ctx.fillStyle='#94a3b8';ctx.font='10px Inter,sans-serif';ctx.textAlign='right';
-    const v=Math.round(maxVal*i/4);
+    const y=pad.t+cH-(i/4)*cH;
+    ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(W-pad.r,y); ctx.stroke();
+    ctx.fillStyle='#94a3b8'; ctx.font='10px Inter,sans-serif'; ctx.textAlign='right';
+    const v=Math.round(maxV*i/4);
     ctx.fillText(v>=1000?(v/1000).toFixed(0)+'k':v,pad.l-5,y+3);
   }
   zones.forEach((z,i)=>{
-    const gx=pad.l+i*groupW+groupW/2;
-    // occupied bar
-    const oh=occ[i]/maxVal*chartH;
+    const gx=pad.l+i*gW+gW/2;
+    const oh=occ[i]/maxV*cH;
     ctx.fillStyle='#2563eb';
-    ctx.beginPath();
-    ctx.roundRect(gx-barW-gap/2,pad.t+chartH-oh,barW,oh,3);
-    ctx.fill();
-    // empty bar
-    const eh=emp[i]/maxVal*chartH;
+    ctx.beginPath(); ctx.roundRect(gx-bW-gap/2,pad.t+cH-oh,bW,oh,3); ctx.fill();
+    const eh=emp[i]/maxV*cH;
     ctx.fillStyle='#0d9488';
-    ctx.beginPath();
-    ctx.roundRect(gx+gap/2,pad.t+chartH-eh,barW,eh,3);
-    ctx.fill();
-    // label
-    ctx.fillStyle='#4a5568';ctx.font='bold 11px Inter,sans-serif';ctx.textAlign='center';
+    ctx.beginPath(); ctx.roundRect(gx+gap/2,pad.t+cH-eh,bW,eh,3); ctx.fill();
+    ctx.fillStyle='#4a5568'; ctx.font='bold 11px Inter,sans-serif'; ctx.textAlign='center';
     ctx.fillText(z,gx,H-8);
   });
 }
 
-function drawDoughnutChart(d){
+function drawDoughnut(d){
   const canvas=document.getElementById('doughnutChart');
   const ctx=canvas.getContext('2d');
-  const W=canvas.parentElement.clientWidth-40||300;
-  const H=200;
-  canvas.width=W;canvas.height=H;
+  const W=canvas.parentElement.clientWidth-40||300; const H=200;
+  canvas.width=W; canvas.height=H;
   ctx.clearRect(0,0,W,H);
   const zones=Object.keys(d);
   const emPct=zones.map(z=>pct(d[z].empty,d[z].total));
   const colors=['#2563eb','#0d9488','#d97706','#7c3aed'];
-  const cx=W/2,cy=H/2-10,radius=Math.min(cx,cy)-30,inner=radius*0.58;
+  const cx=W/2,cy=H/2-10,radius=Math.min(cx,cy)-28,inner=radius*0.58;
   let startAngle=-Math.PI/2;
   const total=emPct.reduce((a,b)=>a+b,0)||1;
   emPct.forEach((v,i)=>{
     const slice=(v/total)*2*Math.PI;
-    ctx.beginPath();
-    ctx.moveTo(cx,cy);
-    ctx.arc(cx,cy,radius,startAngle,startAngle+slice);
-    ctx.closePath();
-    ctx.fillStyle=colors[i];
-    ctx.fill();
-    ctx.beginPath();
-    ctx.arc(cx,cy,inner,0,2*Math.PI);
-    ctx.fillStyle='#fff';
-    ctx.fill();
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,radius,startAngle,startAngle+slice);
+    ctx.closePath(); ctx.fillStyle=colors[i]; ctx.fill();
+    ctx.beginPath(); ctx.arc(cx,cy,inner,0,2*Math.PI);
+    ctx.fillStyle='#fff'; ctx.fill();
     startAngle+=slice;
   });
-  // center text
-  ctx.fillStyle='#1a202c';ctx.font='bold 14px Inter,sans-serif';ctx.textAlign='center';
   const totalEmp=Object.values(d).reduce((s,z)=>s+z.empty,0);
   const totalAll=Object.values(d).reduce((s,z)=>s+z.total,0);
-  ctx.fillText(pct(totalEmp,totalAll)+'%',cx,cy+2);
-  ctx.fillStyle='#94a3b8';ctx.font='10px Inter,sans-serif';
-  ctx.fillText('empty',cx,cy+14);
-  // legend
+  ctx.fillStyle='#1a202c'; ctx.font='bold 15px Inter,sans-serif'; ctx.textAlign='center';
+  ctx.fillText(pct(totalEmp,totalAll)+'%',cx,cy+4);
+  ctx.fillStyle='#94a3b8'; ctx.font='10px Inter,sans-serif';
+  ctx.fillText('empty',cx,cy+16);
   zones.forEach((z,i)=>{
-    const lx=10+(i%2)*((W-20)/2);
-    const ly=H-28+Math.floor(i/2)*14;
-    ctx.fillStyle=colors[i];
-    ctx.fillRect(lx,ly,8,8);
-    ctx.fillStyle='#4a5568';ctx.font='10px Inter,sans-serif';ctx.textAlign='left';
+    const lx=8+(i%2)*((W-16)/2); const ly=H-26+Math.floor(i/2)*14;
+    ctx.fillStyle=colors[i]; ctx.fillRect(lx,ly,8,8);
+    ctx.fillStyle='#4a5568'; ctx.font='10px Inter,sans-serif'; ctx.textAlign='left';
     ctx.fillText(z+' '+emPct[i]+'%',lx+11,ly+7);
   });
 }
 
 function render(d){
-  renderMetrics(d);
-  renderZones(d);
-  drawBarChart(d);
-  drawDoughnutChart(d);
+  renderMetrics(d); renderZones(d); drawBar(d); drawDoughnut(d);
   const t=nowStr();
   document.getElementById('tsLabel').textContent='Updated: '+t;
   document.getElementById('footerDate').textContent=t;
 }
 
-// ── XLSX PARSER (pure JS, no library) ───────────────────────
+// XLSX parser
 function parseXLSX(buffer){
-  // Use SheetJS loaded inline
   try{
     const wb=XLSX.read(buffer,{type:'array'});
     const ws=wb.Sheets[wb.SheetNames[0]];
@@ -378,28 +322,22 @@ function loadFile(file){
   const r=new FileReader();
   r.onload=function(ev){
     const d=parseXLSX(ev.target.result);
-    if(d){DATA=d;render(DATA);}
-    else alert('Could not parse the file — please use a valid SAP Storage Bin export (LX03/MB52).');
+    if(d){DATA_NOW=d; render(DATA_NOW);}
+    else alert('Could not parse — please use SAP Storage Bin export (LX03/MB52).');
   };
   r.readAsArrayBuffer(file);
 }
-
 document.getElementById('fileInput').addEventListener('change',function(e){
-  const f=e.target.files[0];if(!f)return;
-  loadFile(f);e.target.value='';
+  const f=e.target.files[0]; if(!f)return; loadFile(f); e.target.value='';
 });
 function handleDrag(e,on){e.preventDefault();document.getElementById('uploadWrap').classList.toggle('drag',on);}
 function handleDrop(e){
-  e.preventDefault();document.getElementById('uploadWrap').classList.remove('drag');
-  const f=e.dataTransfer.files[0];if(f)loadFile(f);
+  e.preventDefault(); document.getElementById('uploadWrap').classList.remove('drag');
+  const f=e.dataTransfer.files[0]; if(f)loadFile(f);
 }
-window.addEventListener('resize',()=>{if(DATA)render(DATA);});
-
-// Initial load
-render(DEFAULT);
+window.addEventListener('resize',()=>render(DATA_NOW));
+render(DATA_NOW);
 </script>
-
-<!-- SheetJS embedded for XLSX parsing -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </body>
 </html>
